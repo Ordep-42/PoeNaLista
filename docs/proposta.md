@@ -31,7 +31,7 @@ Acreditamos que pessoas que dividem a mesma casa vão utilizar o PoeNaLista de f
 ---
 
 ## 3. Backlog Inicial
-[INSERIR O LINK PARA O QUADRO KANBAN NO GITHUB PROJECTS]
+Quadro Kanban da equipe: [https://github.com/users/pedroac7/projects/1](https://github.com/users/pedroac7/projects/1)
 
 ## 4. Stack Tecnológico e Justificativa
 [Descrever as tecnologias escolhidas]
