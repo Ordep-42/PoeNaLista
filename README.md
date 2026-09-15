@@ -4,7 +4,7 @@ Gerenciador de lista de compras sincronizada em tempo real para grupos que moram
 ## Equipe
 * **Pedro Galvão do Amaral Neto** - Matrícula: 20230049153 - GitHub: [@Ordep-42](https://github.com/Ordep-42) - Papel:
 * **Pedro de Andrade Cursino** - Matrícula: 20220050043 - Github: [@pedroac7](https://github.com/pedroac7) - Papel:
-* **Nome do Integrante 3** - Matrícula: XXXXXXXXX - GitHub: [@usuario](https://github.com/usuario) - Papel:
+* **Raylanna Lara Felix de Araujo** - Matrícula: 20230002630 - GitHub: [@usuario](https://github.com/usuario) - Papel:
 * **Nome do Integrante 4** - Matrícula: XXXXXXXXX - GitHub: [@usuario](https://github.com/usuario) - Papel: 
 
 ## Informações da Disciplina
