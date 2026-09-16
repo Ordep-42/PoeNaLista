@@ -31,7 +31,7 @@ Acreditamos que pessoas que dividem a mesma casa vão utilizar o PoeNaLista de f
 ---
 
 ## 3. Backlog Inicial
-Quadro Kanban da equipe: [https://github.com/users/pedroac7/projects/1](https://github.com/users/pedroac7/projects/1)
+Quadro Kanban da equipe: [https://github.com/users/Ordep-42/projects/10](https://github.com/users/Ordep-42/projects/10)
 
 ## 4. Stack Tecnológico e Justificativa
 [Descrever as tecnologias escolhidas]
@@ -51,5 +51,5 @@ Quadro Kanban da equipe: [https://github.com/users/pedroac7/projects/1](https://
 * **Viviane Estefani da Silva Santos Lopes** - Matrícula: 20220056717 - Papel: 
 
 ## 7. Coorte e Integração
-* **Coorte de apresentação:** [A = Presencial / B = Online]
+* **Coorte de apresentação:** B
 * **Integração com outras disciplinas:** Não se aplica.
