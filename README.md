@@ -9,7 +9,7 @@ Gerenciador de lista de compras sincronizada em tempo real para grupos que moram
 
 ## Informações da Disciplina
 * **Disciplina:** DIM0510 - Processos de Software
-* **Coorte:** 
+* **Coorte:** B
 * **Integração com outras disciplinas:** Não se aplica.
 
 ## Links
