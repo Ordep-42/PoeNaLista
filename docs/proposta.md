@@ -34,9 +34,6 @@ Acreditamos que pessoas que dividem a mesma casa vão utilizar o PoeNaLista de f
 Quadro Kanban da equipe: [https://github.com/users/Ordep-42/projects/10](https://github.com/users/Ordep-42/projects/10)
 
 ## 4. Stack Tecnológico e Justificativa
-O projeto será desenvolvido utilizando a linguagem Java (JDK 17) e o framework Spring Boot.
-
-## 4. Stack Tecnológico e Justificativa
 
 Para o desenvolvimento do PoeNaLista, a equipe optou pela linguagem Java (JDK 17) utilizando o ecossistema Spring Boot (Spring MVC e Spring Data JPA) para o backend e a framework Thymeleaf como motor de renderização no frontend, utilizando Apache Maven para o gerenciamento de dependências e build. A persistência de dados será feita com PostgreSQL em ambiente persistente e H2 Database para execuções em memória, complementados por JUnit e Mockito para a construção de testes automatizados.
 
@@ -45,12 +42,26 @@ A escolha por uma arquitetura monolítica com renderização no servidor (Server
 Além da produtividade oferecida pelas convenções do Spring Boot na criação das operações de CRUD para moradores, grupos e itens, a stack destaca-se pela maturidade em suporte a testes unitários e de integração. O uso do banco de dados H2 em memória possibilita a execução rápida e isolada da suíte de testes a cada Pull Request na pipeline de integração contínua (CI), garantindo a validação automatizada das histórias de usuário e suportando a Definição de Pronto (DoD) acordada pelo time.
 
 ## 5. Acordo de Processo
-* **Cadência:** 
+* **Cadência:** As sprints seguirão o calendário oficial da disciplina (ciclos de aproximadamente 2 a 3 semanas). O planejamento (Sprint Planning) ocorrerá na primeira segunda-feira da sprint e o fechamento (Review e Retrospectiva) na última sexta-feira do ciclo.
+  
 * **Cerimônias:** 
-* **Definição de Pronto (DoD):** 
-* **Papéis:** 
-* **Ferramentas:** 
+  * **Planning (Síncrona - 1h):** No início da sprint para definir o Sprint Goal e refinar o Sprint Backlog.
+  * **Daily (Assíncrona - 15 min):** Realizada diariamente via grupo do WhatsApp até as 12h, respondendo: O que fiz ontem? O que farei hoje? Há algum impedimento?
+  * **Review e Retrospectiva (Síncrona - 1h):** Realizada no fim da sprint para demonstração do incremento funcional e definição de melhorias do processo.
+* **Definição de Pronto (DoD):**
+  * [ ] Todos os critérios de aceitação validados.
+  * [ ] Código integrado via Pull Request para a branch `main`.
+  * [ ] Pipeline de CI verde (testes e build passando).
+  * [ ] Revisado e aprovado por pelo menos 1 membro diferente do autor.
+* **Papéis:** A equipe é multidisciplinar. Para o andamento do Scrum, definimos:
+  * **Product Owner:** [INSERIR NOME] (prioriza o backlog e valida critérios de aceitação).
+  * **Scrum Master:** [INSERIR NOME] (garante as cerimônias e a remoção de impedimentos).
+  * **Developers:** [INSERIR NOMES] (foco no desenvolvimento fullstack e infraestrutura).
+  * *Regra de Revisão:* A validação de código é cruzada. Ninguém aprova o próprio PR.
+* **Ferramentas:** WhatsApp (Daily e comunicação rápida), Discord (reuniões síncronas), GitHub Projects (Kanban), GitHub Actions (CI) e JUnit (Testes automatizados).
 * **WIP limits:** 
+  * **Em progresso:** Máximo de 2 itens.
+  * **Em revisão:** Máximo de 2 itens.
 
 ## 6. Equipe
 * **Pedro Galvão do Amaral Neto** - Matrícula: 20230049153 - Papel: 
