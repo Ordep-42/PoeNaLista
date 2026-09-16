@@ -14,17 +14,17 @@ Gerenciador de lista de compras sincronizada em tempo real para grupos que moram
 
 ## Links
 * [Proposta do Projeto](docs/proposta.md)
-* [Quadro Kanban no GitHub Projects](https://github.com/users/pedroac7/projects/1)
+* [Quadro Kanban no GitHub Projects](https://github.com/users/Ordep-42/projects/10)
 * [Vídeo de Apresentação da Sprint 0](A GRAVAR)
 
 
 ## Checklist do projeto
 ### Sprint 0
-- [ ] Repositório público + README completo
-- [ ] docs/proposta.md (≤3 pág.)
+- [X] Repositório público + README completo
+- [X] docs/proposta.md (≤3 pág.)
 - [ ] GitHub Projects com ≥5 itens, ≥3 estimados
-- [ ] Coorte declarada (A=presencial / B=online)
-- [ ] Integração com outra disciplina declarada (se houver)
+- [X] Coorte declarada (A=presencial / B=online)
+- [X] Integração com outra disciplina declarada (se houver)
 - [ ] Vídeo 5 min
 
 ### Sprint 1
