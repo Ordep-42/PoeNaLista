@@ -34,7 +34,15 @@ Acreditamos que pessoas que dividem a mesma casa vão utilizar o PoeNaLista de f
 Quadro Kanban da equipe: [https://github.com/users/Ordep-42/projects/10](https://github.com/users/Ordep-42/projects/10)
 
 ## 4. Stack Tecnológico e Justificativa
-[Descrever as tecnologias escolhidas]
+O projeto será desenvolvido utilizando a linguagem Java (JDK 17) e o framework Spring Boot.
+
+## 4. Stack Tecnológico e Justificativa
+
+Para o desenvolvimento do PoeNaLista, a equipe optou pela linguagem Java (JDK 17) utilizando o ecossistema Spring Boot (Spring MVC e Spring Data JPA) para o backend e a framework Thymeleaf como motor de renderização no frontend, utilizando Apache Maven para o gerenciamento de dependências e build. A persistência de dados será feita com PostgreSQL em ambiente persistente e H2 Database para execuções em memória, complementados por JUnit e Mockito para a construção de testes automatizados.
+
+A escolha por uma arquitetura monolítica com renderização no servidor (Server-Side Rendering) via Thymeleaf justifica-se pela busca por produtividade e simplicidade operacional. Ao evitar a separação entre uma API e uma aplicação frontend autônoma, a equipe elimina o overhead de gerenciar builds distintos, rotas duplicadas e configurações de CORS.
+
+Além da produtividade oferecida pelas convenções do Spring Boot na criação das operações de CRUD para moradores, grupos e itens, a stack destaca-se pela maturidade em suporte a testes unitários e de integração. O uso do banco de dados H2 em memória possibilita a execução rápida e isolada da suíte de testes a cada Pull Request na pipeline de integração contínua (CI), garantindo a validação automatizada das histórias de usuário e suportando a Definição de Pronto (DoD) acordada pelo time.
 
 ## 5. Acordo de Processo
 * **Cadência:** 
