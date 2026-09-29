@@ -38,22 +38,27 @@ Os pacotes são organizados por funcionalidade, para que cada história do quadr
 ```
 src/main/java/br/ufrn/poenalista/
 ├── PoeNaListaApplication.java   # ponto de entrada
-├── usuario/   # conta e entrada no app (#1)
-├── casa/      # casas e convite de moradores (#2)
-├── item/      # itens da lista: CRUD, categoria, comprado (#3, #5)
-├── config/    # configurações transversais (ex.: WebSocket p/ tempo real, #4)
-└── web/       # páginas gerais (início)
+├── user/          # User — conta e entrada no app (#1)
+├── house/         # House, Resident, Invite — casas e convite de moradores (#2, #6)
+├── shoppinglist/  # ShoppingList — listas de compras de uma casa
+├── item/          # Item, Category — itens da lista (#3, #5)
+├── config/        # configurações transversais (ex.: WebSocket p/ tempo real, #4)
+└── web/           # páginas gerais (início)
 src/main/resources/
 ├── application.properties        # perfil padrão (H2)
 ├── application-prod.properties   # perfil prod (PostgreSQL)
+├── db/migration/                 # migrations Flyway (V1__..., V2__...)
 ├── templates/                    # páginas Thymeleaf (fragments/layout.html = cabeçalho comum)
 └── static/css/                   # estilos
 ```
 
-Cada pacote de funcionalidade segue a convenção: entidade JPA, `Repository`, `Service` e `Controller`, com as páginas em `templates/<pacote>/`. O CI (GitHub Actions) roda `./mvnw verify` em todo PR para `main`.
+Cada pacote de funcionalidade segue a convenção: entidade JPA, `Repository`, `Service` e `Controller`, com as páginas em `templates/<pacote>/`.
+
+O banco é criado **pelas migrations Flyway**, que rodam sozinhas ao subir o app; o Hibernate só valida que as entidades batem com as tabelas. Tabelas, diagrama e regras para criar novas migrations estão em [docs/modelo-de-dados.md](docs/modelo-de-dados.md). O CI (GitHub Actions) roda `./mvnw verify` em todo PR para `main`.
 
 ## Links
 * [Proposta do Projeto](docs/proposta.md)
+* [Modelo de Dados](docs/modelo-de-dados.md)
 * [Quadro Kanban no GitHub Projects](https://github.com/users/Ordep-42/projects/10)
 * [Vídeo de Apresentação da Sprint 0](https://drive.google.com/file/d/13UqQW9wg5qu5rqee_HHRxQ_MpwveISmf/view?usp=sharing)
 
