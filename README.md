@@ -12,6 +12,46 @@ Gerenciador de lista de compras sincronizada em tempo real para grupos que moram
 * **Coorte:** B
 * **Integração com outras disciplinas:** Não se aplica.
 
+## Como rodar
+
+### Pré-requisitos
+* **JDK 17** (ex.: [Eclipse Temurin](https://adoptium.net/)). Não é preciso instalar o Maven: o projeto usa o Maven Wrapper (`mvnw`).
+
+### Comandos
+```bash
+./mvnw spring-boot:run      # Linux/macOS
+mvnw.cmd spring-boot:run    # Windows
+```
+
+Acesse [http://localhost:8080](http://localhost:8080). Por padrão a aplicação usa um banco **H2 em memória** (os dados somem ao reiniciar); o console do banco fica em [http://localhost:8080/h2-console](http://localhost:8080/h2-console) com a JDBC URL `jdbc:h2:mem:poenalista`, usuário `sa` e senha vazia.
+
+Para rodar os testes: `./mvnw test`.
+
+Para usar **PostgreSQL**, ative o perfil `prod` e informe a conexão por variáveis de ambiente (`DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`):
+```bash
+SPRING_PROFILES_ACTIVE=prod DATABASE_URL=jdbc:postgresql://localhost:5432/poenalista ./mvnw spring-boot:run
+```
+
+### Estrutura do projeto
+Os pacotes são organizados por funcionalidade, para que cada história do quadro fique concentrada em um pacote:
+
+```
+src/main/java/br/ufrn/poenalista/
+├── PoeNaListaApplication.java   # ponto de entrada
+├── usuario/   # conta e entrada no app (#1)
+├── casa/      # casas e convite de moradores (#2)
+├── item/      # itens da lista: CRUD, categoria, comprado (#3, #5)
+├── config/    # configurações transversais (ex.: WebSocket p/ tempo real, #4)
+└── web/       # páginas gerais (início)
+src/main/resources/
+├── application.properties        # perfil padrão (H2)
+├── application-prod.properties   # perfil prod (PostgreSQL)
+├── templates/                    # páginas Thymeleaf (fragments/layout.html = cabeçalho comum)
+└── static/css/                   # estilos
+```
+
+Cada pacote de funcionalidade segue a convenção: entidade JPA, `Repository`, `Service` e `Controller`, com as páginas em `templates/<pacote>/`. O CI (GitHub Actions) roda `./mvnw verify` em todo PR para `main`.
+
 ## Links
 * [Proposta do Projeto](docs/proposta.md)
 * [Quadro Kanban no GitHub Projects](https://github.com/users/Ordep-42/projects/10)

@@ -1,0 +1,29 @@
+:root {
+	--cor-primaria: #2e7d32;
+	--cor-texto: #1f2328;
+	--cor-fundo: #f6f8fa;
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, sans-serif;
+	color: var(--cor-texto);
+	background: var(--cor-fundo);
+}
+
+.topo {
+	padding: 1rem;
+	background: var(--cor-primaria);
+}
+
+.marca {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.conteudo {
+	max-width: 48rem;
+	margin: 0 auto;
+	padding: 1rem;
+}
