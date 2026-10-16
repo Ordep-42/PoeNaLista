@@ -54,9 +54,9 @@ Além da produtividade oferecida pelas convenções do Spring Boot na criação 
   * [ ] Pipeline de CI verde (testes e build passando).
   * [ ] Revisado e aprovado por pelo menos 1 membro diferente do autor.
 * **Papéis:** A equipe é multidisciplinar. Para o andamento do Scrum, definimos:
-  * **Product Owner:** [INSERIR NOME] (prioriza o backlog e valida critérios de aceitação).
-  * **Scrum Master:** [INSERIR NOME] (garante as cerimônias e a remoção de impedimentos).
-  * **Developers:** [INSERIR NOMES] (foco no desenvolvimento fullstack e infraestrutura).
+  * **Product Owner:** Pedro Galvão do Amaral Neto (prioriza o backlog e valida critérios de aceitação).
+  * **Scrum Master:** Raylanna Lara Felix de Araujo (garante as cerimônias e a remoção de impedimentos).
+  * **Developers:** Pedro Galvão do Amaral Neto, Pedro de Andrade Cursino, Raylanna Lara Felix de Araujo e Viviane Estefani da Silva Santos Lopes (foco no desenvolvimento fullstack e infraestrutura).
   * *Regra de Revisão:* A validação de código é cruzada. Ninguém aprova o próprio PR.
 * **Ferramentas:** WhatsApp (Daily e comunicação rápida), Discord (reuniões síncronas), GitHub Projects (Kanban), GitHub Actions (CI) e JUnit (Testes automatizados).
 * **WIP limits:** 
@@ -64,10 +64,10 @@ Além da produtividade oferecida pelas convenções do Spring Boot na criação 
   * **Em revisão:** Máximo de 2 itens.
 
 ## 6. Equipe
-* **Pedro Galvão do Amaral Neto** - Matrícula: 20230049153 - Papel: 
-* **Pedro de Andrade Cursino** - Matrícula: 20220050043 - Papel: 
-* **Raylanna Lara Felix de Araujo** - Matrícula: 20230002630 - Papel: 
-* **Viviane Estefani da Silva Santos Lopes** - Matrícula: 20220056717 - Papel: 
+* **Pedro Galvão do Amaral Neto** - Matrícula: 20230049153 - Papel: Product Owner e Developer
+* **Pedro de Andrade Cursino** - Matrícula: 20220050043 - Papel: Developer
+* **Raylanna Lara Felix de Araujo** - Matrícula: 20230002630 - Papel: Scrum Master e Developer
+* **Viviane Estefani da Silva Santos Lopes** - Matrícula: 20220056717 - Papel: Developer
 
 ## 7. Coorte e Integração
 * **Coorte de apresentação:** B
