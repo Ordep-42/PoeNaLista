@@ -27,3 +27,232 @@ body {
 	margin: 0 auto;
 	padding: 1rem;
 }
+
+/* ---- Lista de compras (história #3) ---- */
+
+:root {
+	--cor-borda: #d0d7de;
+	--cor-suave: #57606a;
+	--cor-cartao: #fff;
+	--cor-perigo: #c62828;
+	--cor-sucesso-fundo: #e8f5e9;
+	--cor-erro-fundo: #ffebee;
+	--raio: 0.5rem;
+}
+
+h1 {
+	margin-bottom: 0.25rem;
+}
+
+h2 {
+	margin-top: 0;
+	font-size: 1.15rem;
+}
+
+.subtitulo {
+	margin-top: 0;
+	color: var(--cor-suave);
+}
+
+.cartao {
+	margin-bottom: 1rem;
+	padding: 1rem;
+	background: var(--cor-cartao);
+	border: 1px solid var(--cor-borda);
+	border-radius: var(--raio);
+}
+
+.alerta {
+	margin-bottom: 1rem;
+	padding: 0.75rem 1rem;
+	border-radius: var(--raio);
+}
+
+.alerta-sucesso {
+	background: var(--cor-sucesso-fundo);
+	color: var(--cor-primaria);
+}
+
+.alerta-erro {
+	background: var(--cor-erro-fundo);
+	color: var(--cor-perigo);
+}
+
+/* Formulário de inclusão */
+.form-item {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: flex-start;
+}
+
+.campo {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.campo-nome {
+	flex: 2 1 12rem;
+}
+
+.campo-quantidade {
+	flex: 0 1 7rem;
+}
+
+.campo-categoria {
+	flex: 1 1 10rem;
+}
+
+.form-item .botao {
+	align-self: flex-end;
+}
+
+label {
+	font-size: 0.9rem;
+	font-weight: 600;
+}
+
+input,
+select {
+	padding: 0.5rem;
+	font: inherit;
+	border: 1px solid var(--cor-borda);
+	border-radius: var(--raio);
+	background: #fff;
+}
+
+input.invalido,
+select.invalido {
+	border-color: var(--cor-perigo);
+}
+
+.erro-campo {
+	font-size: 0.85rem;
+	color: var(--cor-perigo);
+}
+
+/* Botões */
+.botao {
+	padding: 0.5rem 0.9rem;
+	font: inherit;
+	color: var(--cor-texto);
+	background: #fff;
+	border: 1px solid var(--cor-borda);
+	border-radius: var(--raio);
+	cursor: pointer;
+}
+
+.botao:hover:not(:disabled) {
+	background: var(--cor-fundo);
+}
+
+.botao:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.botao-primario {
+	color: #fff;
+	background: var(--cor-primaria);
+	border-color: var(--cor-primaria);
+}
+
+.botao-primario:hover:not(:disabled) {
+	background: #1b5e20;
+}
+
+.botao-perigo {
+	color: var(--cor-perigo);
+	border-color: var(--cor-perigo);
+}
+
+.botao-perigo:hover:not(:disabled) {
+	color: #fff;
+	background: var(--cor-perigo);
+}
+
+.botao-icone {
+	width: 2.25rem;
+	padding: 0.5rem 0;
+	font-weight: bold;
+}
+
+/* Listagem de itens */
+.contador {
+	display: inline-block;
+	min-width: 1.5rem;
+	padding: 0 0.4rem;
+	font-size: 0.85rem;
+	text-align: center;
+	color: #fff;
+	background: var(--cor-primaria);
+	border-radius: 999px;
+}
+
+.vazio {
+	color: var(--cor-suave);
+}
+
+.lista-itens {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.item {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.75rem 0;
+	border-top: 1px solid var(--cor-borda);
+}
+
+.item:first-child {
+	border-top: none;
+}
+
+.item-info {
+	display: flex;
+	flex-direction: column;
+}
+
+.item-nome {
+	font-weight: 600;
+}
+
+.item-categoria {
+	font-size: 0.85rem;
+	color: var(--cor-suave);
+}
+
+.item-acoes {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	align-items: center;
+}
+
+.item-acoes form {
+	margin: 0;
+}
+
+.form-quantidade {
+	display: flex;
+	gap: 0.4rem;
+}
+
+.form-quantidade input {
+	width: 4.5rem;
+}
+
+.visualmente-oculto {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}

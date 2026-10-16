@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
-<head th:replace="~{fragments/layout :: head('Início')}"></head>
+<head th:replace="~{fragments/layout :: head('Lista de compras')}"></head>
 <body>
 	<header th:replace="~{fragments/layout :: header}"></header>
 	<main class="conteudo">
-		<h1>PoeNaLista</h1>
-		<p>Lista de compras compartilhada para quem mora junto.</p>
+		<h1 th:text="${lista.shoppingListName}">Lista de Compras</h1>
+		<p class="subtitulo" th:text="${lista.houseName}">Minha Casa</p>
+
+		<div class="alerta alerta-sucesso" role="status" th:if="${sucesso}" th:text="${sucesso}">Mensagem de sucesso</div>
+		<div class="alerta alerta-erro" role="alert" th:if="${erro}" th:text="${erro}">Mensagem de erro</div>
+
+		<section class="cartao" aria-labelledby="titulo-adicionar">
+			<h2 id="titulo-adicionar">Adicionar item</h2>
+			<form class="form-item" method="post" th:action="@{/itens}" th:object="${itemForm}">
+				<div class="campo campo-nome">
+					<label for="name">Nome</label>
+					<input type="text" th:field="*{name}" maxlength="100" placeholder="Ex.: Arroz" required
+						th:errorclass="invalido">
+					<span class="erro-campo" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Erro</span>
+				</div>
+				<div class="campo campo-quantidade">
+					<label for="quantity">Quantidade</label>
+					<input type="number" th:field="*{quantity}" min="1" max="9999" step="1" required
+						th:errorclass="invalido">
+					<span class="erro-campo" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Erro</span>
+				</div>
+				<div class="campo campo-categoria">
+					<label for="categoryId">Categoria</label>
+					<select th:field="*{categoryId}" required th:errorclass="invalido">
+						<option value="">Selecione…</option>
+						<option th:each="categoria : ${categorias}" th:value="${categoria.id}"
+							th:text="${categoria.name}">Categoria</option>
+					</select>
+					<span class="erro-campo" th:if="${#fields.hasErrors('categoryId')}" th:errors="*{categoryId}">Erro</span>
+				</div>
+				<button type="submit" class="botao botao-primario">Adicionar</button>
+			</form>
+		</section>
+
+		<section class="cartao" aria-labelledby="titulo-itens">
+			<h2 id="titulo-itens">Itens <span class="contador" th:text="${#lists.size(itens)}">0</span></h2>
+
+			<p class="vazio" th:if="${#lists.isEmpty(itens)}">
+				A lista está vazia. Adicione o primeiro item pelo formulário acima.
+			</p>
+
+			<ul class="lista-itens" th:unless="${#lists.isEmpty(itens)}">
+				<li class="item" th:each="item : ${itens}" th:id="|item-${item.id}|">
+					<div class="item-info">
+						<span class="item-nome" th:text="${item.name}">Nome do item</span>
+						<span class="item-categoria"
+							th:text="${item.category != null ? item.category.name : 'Sem categoria'}">Categoria</span>
+					</div>
+
+					<div class="item-acoes">
+						<form method="post" th:action="@{/itens/{id}/quantidade(id=${item.id})}">
+							<input type="hidden" name="quantity" th:value="${item.quantity - 1}">
+							<button type="submit" class="botao botao-icone" th:disabled="${item.quantity <= 1}"
+								aria-label="Diminuir quantidade" title="Diminuir quantidade">−</button>
+						</form>
+
+						<form class="form-quantidade" method="post" th:action="@{/itens/{id}/quantidade(id=${item.id})}">
+							<label class="visualmente-oculto" th:for="|quantidade-${item.id}|">Quantidade</label>
+							<input type="number" name="quantity" min="1" max="9999" step="1" required
+								th:id="|quantidade-${item.id}|" th:value="${item.quantity}">
+							<button type="submit" class="botao">Atualizar</button>
+						</form>
+
+						<form method="post" th:action="@{/itens/{id}/quantidade(id=${item.id})}">
+							<input type="hidden" name="quantity" th:value="${item.quantity + 1}">
+							<button type="submit" class="botao botao-icone"
+								aria-label="Aumentar quantidade" title="Aumentar quantidade">+</button>
+						</form>
+
+						<form method="post" th:action="@{/itens/{id}/remover(id=${item.id})}"
+							onsubmit="return confirm('Remover este item da lista?');">
+							<button type="submit" class="botao botao-perigo">Remover</button>
+						</form>
+					</div>
+				</li>
+			</ul>
+		</section>
 	</main>
 </body>
 </html>
