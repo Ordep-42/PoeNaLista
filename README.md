@@ -12,25 +12,50 @@ Gerenciador de lista de compras sincronizada em tempo real para grupos que moram
 * **Coorte:** B
 * **Integração com outras disciplinas:** Não se aplica.
 
-## Como rodar
+## Como executar o projeto
 
 ### Pré-requisitos
-* **JDK 17** (ex.: [Eclipse Temurin](https://adoptium.net/)). Não é preciso instalar o Maven: o projeto usa o Maven Wrapper (`mvnw`).
+* **JDK 17 ou superior** (ex.: [Eclipse Temurin](https://adoptium.net/)) com `java` no `PATH` (ou `JAVA_HOME` configurado). Confira com `java -version`.
+* **Não é preciso instalar o Maven**: o projeto usa o Maven Wrapper (`mvnw`), que baixa a versão certa na primeira execução (requer internet nessa primeira vez).
+* **Não é preciso instalar banco de dados**: por padrão a aplicação usa H2 em memória. PostgreSQL só é necessário no perfil `prod` (ver abaixo).
 
-### Comandos
+### Subindo a aplicação
+Na raiz do repositório:
 ```bash
-./mvnw spring-boot:run      # Linux/macOS
-mvnw.cmd spring-boot:run    # Windows
+./mvnw spring-boot:run      # Linux/macOS (Git Bash no Windows também funciona)
+mvnw.cmd spring-boot:run    # Windows (PowerShell/CMD)
 ```
 
-Acesse [http://localhost:8080](http://localhost:8080). Por padrão a aplicação usa um banco **H2 em memória** (os dados somem ao reiniciar); o console do banco fica em [http://localhost:8080/h2-console](http://localhost:8080/h2-console) com a JDBC URL `jdbc:h2:mem:poenalista`, usuário `sa` e senha vazia.
+Quando aparecer no terminal a mensagem `Started PoeNaListaApplication`, acesse **[http://localhost:8080](http://localhost:8080)**. Para parar, use `Ctrl+C`.
 
-Para rodar os testes: `./mvnw test`.
+### O que esperar na tela
+Ao abrir `http://localhost:8080` você cai direto na **lista de compras** — não há login por enquanto:
+
+* **Cabeçalho** verde com a marca *PoeNaLista*, seguido do título da lista (**Lista de Compras**) e da casa (**Minha Casa**).
+* **Adicionar item**: formulário com *Nome*, *Quantidade* (padrão 1) e *Categoria* (Hortifrúti, Padaria, Frios, Laticínios, Carnes, Mercearia, Bebidas, Limpeza, Higiene, Outros). Ao clicar em **Adicionar**, o item entra na lista e aparece uma mensagem de confirmação; campos inválidos (nome vazio, quantidade menor que 1, categoria não escolhida) são apontados no próprio formulário.
+* **Itens**: contador e a lista dos itens atuais, cada um com nome, categoria e os controles:
+  * **−** / **+** diminuem ou aumentam a quantidade em 1 (o **−** fica desabilitado em 1);
+  * campo numérico + **Atualizar** define a quantidade diretamente (mínimo 1);
+  * **Remover** tira o item da lista (após confirmação).
+* Com a lista vazia, aparece o aviso *"A lista está vazia"*.
+
+> **Lista padrão (provisória):** enquanto login (#1) e criação de casas (#2) não estão integrados, a aplicação cria automaticamente na inicialização um usuário (`morador.padrao@poenalista.local`, sem senha utilizável), uma casa *Minha Casa* e a lista *Lista de Compras* — ver `shoppinglist/DefaultShoppingListService.java`. Todos que acessam a página usam essa mesma lista.
+
+### Banco de dados
+Por padrão a aplicação usa um banco **H2 em memória** (os dados somem ao reiniciar); o console do banco fica em [http://localhost:8080/h2-console](http://localhost:8080/h2-console) com a JDBC URL `jdbc:h2:mem:poenalista`, usuário `sa` e senha vazia.
 
 Para usar **PostgreSQL**, ative o perfil `prod` e informe a conexão por variáveis de ambiente (`DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`):
 ```bash
 SPRING_PROFILES_ACTIVE=prod DATABASE_URL=jdbc:postgresql://localhost:5432/poenalista ./mvnw spring-boot:run
 ```
+
+### Testes
+```bash
+./mvnw test      # Linux/macOS
+mvnw.cmd test    # Windows
+```
+Os testes usam o H2 em memória e não precisam de nenhum serviço externo. Os testes de aceitação da história #3 (adicionar, alterar quantidade e remover itens) estão em `src/test/java/br/ufrn/poenalista/web/GerenciarItensDaListaTest.java`.
+
 
 ### Estrutura do projeto
 Os pacotes são organizados por funcionalidade, para que cada história do quadro fique concentrada em um pacote:

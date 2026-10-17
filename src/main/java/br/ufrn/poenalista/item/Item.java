@@ -84,6 +84,18 @@ public class Item {
 		updatedAt = Instant.now();
 	}
 
+	/**
+	 * Altera a quantidade do item. Espelha a restrição {@code ck_items_quantity} do banco.
+	 *
+	 * @throws IllegalArgumentException se {@code quantity} for menor que 1
+	 */
+	public void updateQuantity(int quantity) {
+		if (quantity < 1) {
+			throw new IllegalArgumentException("A quantidade deve ser no mínimo 1.");
+		}
+		this.quantity = quantity;
+	}
+
 	public Long getId() {
 		return id;
 	}
